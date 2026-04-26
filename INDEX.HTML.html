@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aryan Pandey — Accounts & Finance Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1F4E79;
+    --navy-dark: #0D2D4A;
+    --navy-light: #D6E4F0;
+    --gold: #C8922A;
+    --gold-light: #F5E6C8;
+    --white: #FAFAF8;
+    --ink: #1A1A1A;
+    --muted: #6B6B6B;
+    --border: #E2E0DA;
+    --surface: #F4F2ED;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--navy-dark);
+    color: #fff;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: rgba(200,146,42,0.12);
+    pointer-events: none;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 20%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    pointer-events: none;
+  }
+
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 56px 32px 48px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .avatar {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), #E8A840);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(200,146,42,0.4);
+    animation: fadeIn 0.6s ease both;
+  }
+
+  .header-text { flex: 1; }
+
+  .name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    animation: slideUp 0.5s ease both;
+  }
+
+  .title {
+    font-size: 15px;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 8px;
+    font-weight: 500;
+    animation: slideUp 0.5s 0.1s ease both;
+  }
+
+  .contact-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-top: 20px;
+    animation: slideUp 0.5s 0.2s ease both;
+  }
+
+  .contact-strip a, .contact-strip span {
+    color: rgba(255,255,255,0.75);
+    font-size: 13.5px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .contact-strip a:hover { color: var(--gold); }
+
+  .ci { font-size: 14px; }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(200,146,42,0.2);
+    border: 1px solid rgba(200,146,42,0.4);
+    color: #F5C870;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 16px;
+    letter-spacing: 0.04em;
+    animation: slideUp 0.5s 0.3s ease both;
+  }
+  .status-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #4ADE80;
+    animation: pulse 2s infinite;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .nav-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    gap: 0;
+  }
+  nav a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 14px 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    display: block;
+  }
+  nav a:hover { color: #fff; border-bottom-color: var(--gold); }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  section {
+    padding-top: 56px;
+    animation: fadeIn 0.6s ease both;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--navy-dark);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1.5px solid var(--border);
+  }
+
+  /* ── SUMMARY ── */
+  .summary-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    background: var(--surface);
+    border-left: 3px solid var(--navy);
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+  }
+
+  .skill-chip {
+    background: var(--navy-light);
+    color: var(--navy-dark);
+    border: 1px solid #B5D4F4;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .skill-chip:hover {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+    transform: translateY(-1px);
+  }
+  .skill-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-list { display: flex; flex-direction: column; gap: 16px; }
+  .edu-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: box-shadow 0.2s;
+  }
+  .edu-card:hover { box-shadow: 0 4px 20px rgba(31,78,121,0.10); }
+  .edu-year {
+    background: var(--navy-dark);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .edu-info h3 {
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .edu-info p {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ── CERTIFICATIONS ── */
+  .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+  .cert-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    border-top: 3px solid var(--gold);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cert-card:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.09); }
+  .cert-icon { font-size: 22px; margin-bottom: 8px; }
+  .cert-card h3 { font-size: 14.5px; font-weight: 600; color: var(--navy-dark); }
+  .cert-card p { font-size: 13px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+
+  /* ── PROJECTS ── */
+  .project-list { display: flex; flex-direction: column; gap: 16px; }
+  .project-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    transition: box-shadow 0.2s;
+  }
+  .project-card:hover { box-shadow: 0 4px 20px rgba(31,78,121,0.10); }
+  .project-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+  .project-card h3 { font-size: 15.5px; font-weight: 600; color: var(--navy-dark); }
+  .project-tag {
+    background: var(--gold-light);
+    color: #7A5100;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .project-card ul { margin-top: 12px; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .project-card li { font-size: 14px; color: #444; padding-left: 16px; position: relative; line-height: 1.6; }
+  .project-card li::before { content: '▸'; position: absolute; left: 0; color: var(--gold); font-size: 12px; top: 2px; }
+
+  /* ── DOWNLOAD ── */
+  .cta-bar {
+    background: var(--navy-dark);
+    border-radius: 12px;
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 48px;
+  }
+  .cta-text h3 { font-family: 'DM Serif Display', serif; font-size: 22px; color: #fff; font-weight: 400; }
+  .cta-text p { font-size: 13.5px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+  .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 22px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary { background: var(--gold); color: #fff; }
+  .btn-primary:hover { background: #B07820; transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.3); }
+  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.07); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 24px 32px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .header-inner { flex-direction: column; gap: 20px; padding: 36px 20px 32px; }
+    main { padding: 0 20px 60px; }
+    .nav-inner { padding: 0 12px; gap: 0; overflow-x: auto; }
+    nav a { padding: 12px 10px; font-size: 11px; }
+    .cta-bar { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="avatar">AP</div>
+    <div class="header-text">
+      <div class="name">Aryan Pandey</div>
+      <div class="title">Accounts &amp; Finance Professional</div>
+      <div class="contact-strip">
+        <a href="tel:+917763085375"><span class="ci">📞</span> +91 7763085375</a>
+        <a href="mailto:Aryanpandey720@gmail.com"><span class="ci">✉</span> Aryanpandey720@gmail.com</a>
+        <span><span class="ci">📍</span> Bihar Sharif, Nalanda, Bihar</span>
+        <a href="https://linkedin.com/in/aryan-pandey-136587174" target="_blank"><span class="ci">🔗</span> LinkedIn Profile</a>
+      </div>
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        Actively seeking Audit Associate roles
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+  <section id="about">
+    <div class="section-label">Professional Summary</div>
+    <h2>About Me</h2>
+    <div class="summary-text">
+      M.Com graduate (2025) with a strong foundation in financial accounting, GST, income tax, and audit principles. Proficient in TallyPrime, MS Excel (VLOOKUP, Pivot Tables), and ADCA-certified in computer applications. Seeking an Audit Associate role at a reputed firm to apply analytical skills and accounting knowledge in statutory and internal audit functions. Committed to accuracy, compliance, and long-term professional growth in finance and audit.
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-label">Core Competencies</div>
+    <h2>Skills &amp; Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-chip"><span class="skill-dot"></span>TallyPrime / ERP 9</div>
+      <div class="skill-chip"><span class="skill-dot"></span>GST &amp; Indirect Tax</div>
+      <div class="skill-chip"><span class="skill-dot"></span>Income Tax &amp; TDS</div>
+      <div class="skill-chip"><span class="skill-dot"></span>Financial Accounting</div>
+      <div class="skill-chip"><span class="skill-dot"></span>Audit &amp; Compliance</div>
+      <div class="skill-chip"><span class="skill-dot"></span>MS Excel — Advanced</div>
+      <div class="skill-chip"><span class="skill-dot"></span>Accounts Payable / Receivable</div>
+      <div class="skill-chip"><span class="skill-dot"></span>Ratio Analysis</div>
+      <div class="skill-chip"><span class="skill-dot"></span>Corporate Accounting</div>
+      <div class="skill-chip"><span class="skill-dot"></span>Financial Reporting</div>
+      <div class="skill-chip"><span class="skill-dot"></span>ADCA Certified</div>
+      <div class="skill-chip"><span class="skill-dot"></span>MS Office Suite</div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-label">Academic Background</div>
+    <h2>Education</h2>
+    <div class="edu-list">
+      <div class="edu-card">
+        <div class="edu-year">2023 – 2025</div>
+        <div class="edu-info">
+          <h3>Master of Commerce (M.Com)</h3>
+          <p>Kisan College, Bihar Sharif &nbsp;·&nbsp; Bihar</p>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year">2019 – 2022</div>
+        <div class="edu-info">
+          <h3>B.Com (Honours)</h3>
+          <p>Vanijya Mahavidyalaya, Patna &nbsp;·&nbsp; Patna</p>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year">2017 – 2019</div>
+        <div class="edu-info">
+          <h3>Intermediate — Commerce</h3>
+          <p>RPS School, Bihar Sharif &nbsp;·&nbsp; Bihar Sharif</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="section-label">Training &amp; Certifications</div>
+    <h2>Certifications</h2>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-icon">🎓</div>
+        <h3>ADCA — Advanced Diploma in Computer Applications</h3>
+        <p>MS Office, data management, internet applications &amp; computer fundamentals</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📊</div>
+        <h3>TallyPrime Proficiency</h3>
+        <p>Voucher entry, ledger creation, GST-integrated billing &amp; financial reporting</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📋</div>
+        <h3>GST Framework Knowledge</h3>
+        <p>GSTR-1, GSTR-3B, e-way bill, ITC reconciliation &amp; compliance concepts</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-label">Academic Work</div>
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Financial Statement Analysis — M.Com Dissertation</h3>
+          <span class="project-tag">2024 – 2025</span>
+        </div>
+        <ul>
+          <li>Conducted ratio analysis (liquidity, profitability, solvency) on publicly available annual reports</li>
+          <li>Prepared comparative financial statements and trend analysis using MS Excel Pivot Tables and VLOOKUP</li>
+          <li>Applied working capital management concepts and cash flow analysis techniques</li>
+        </ul>
+      </div>
+      <div class="project-card">
+        <div class="project-header">
+          <h3>GST Compliance &amp; Audit Study</h3>
+          <span class="project-tag">2024</span>
+        </div>
+        <ul>
+          <li>Studied end-to-end GST compliance cycle: registration, invoice generation, GSTR-1 and GSTR-3B filing</li>
+          <li>Analyzed ITC reconciliation process and common audit triggers under GST framework</li>
+          <li>Documented findings related to e-way bill requirements and penalty provisions</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-bar" id="contact">
+    <div class="cta-text">
+      <h3>Open to Opportunities</h3>
+      <p>Available for Audit Associate, Accounts Executive &amp; Finance Analyst roles</p>
+    </div>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="mailto:Aryanpandey720@gmail.com">✉ Email Me</a>
+      <a class="btn btn-outline" href="https://linkedin.com/in/aryan-pandey-136587174" target="_blank">🔗 LinkedIn</a>
+      <a class="btn btn-outline" href="tel:+917763085375">📞 Call</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Aryan Pandey &nbsp;·&nbsp; Accounts &amp; Finance Professional &nbsp;·&nbsp; Bihar Sharif, Bihar &nbsp;·&nbsp; 2025
+</footer>
+
+</body>
+</html>
